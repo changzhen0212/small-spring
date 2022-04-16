@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+    <!-- 我们把 proxyUserDao 这个代理对象，注入到 userService 的 userDao 中。与上一章节相比，去掉了 UserDao 实现类，转而用代理类替换-->
+    <bean id="userService" class="test.bean.UserService" scope="prototype">
+        <property name="uId" value="10001"/>
+        <property name="company" value="腾讯"/>
+        <property name="location" value="深圳"/>
+        <property name="userDao" ref="proxyUserDao"/>
+    </bean>
+
+    <bean id="proxyUserDao" class="test.bean.ProxyBeanFactory"/>
+</beans>
